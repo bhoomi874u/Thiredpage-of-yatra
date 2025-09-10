@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+          body {
+      /* margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      background: url('image3.png') no-repeat center center; 
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        animation: zoomBg 20s infinite alternate ease-in-out;
+        @keyframes zoomBg {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 120%;
+  }
+} */
+ padding: 0%;
+ margin: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+          }
+     .background{
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      
+       height: 100%;
+      width: 100%;
+      background-image: url('image3.png');
+       transform: translate(-50%,-50%); 
+      z-index: -1;
+      /* apni size set karo */
+      animation: upDown 3s ease-in-out infinite alternate;
+    }
+@keyframes upDown {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-20px) ; /* kitna upar niche move kare */
+      }
+    }
+          
+
+      
+
+     
+
+      .welcome {
+      text-align: center; 
+      position: relative;
+      top:0%;
+      left: 0%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      margin-left: 570px;
+      margin-top:70px ;
+
+      /* dark overlay for better visibility */
+       
+     /* background-image: url('yatra nest logo.jpg'); */
+      
+     
+     }
+
+     .welcome h1 {
+      font-size: 6rem;
+      font-weight: bold;
+      
+      text-shadow: 0 0 10px black;
+      
+       color: rgb(156, 32, 32);
+        /* margin-bottom: 500px;
+       margin-right: 70px;
+       margin-left: 170px;
+       margin-top: 70px;
+          */
+
+
+    
+       
+    }  
+
+    /* Animation for glowing text */
+     /* @keyframes glowText {
+      0% {
+        text-shadow: 0 0 5px #6dd5ed, 0 0 10px #6dd5ed, 0 0 20px #2193b0;
+        transform: scale(0.95);
+      }
+      100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #6dd5ed, 0 0 30px #2193b0;
+        transform: translate(120px, 50%);
+      }
+    }  */
+      /* .logowel {
+        background-image: url('yatra nest logo.jpg');
+        background-color: red;
+        font-size: large;
+      } */
+      /* .whole{
+        background-image: url('yatra nest logo.jpg');
+      } */
+       .image{
+        size: 100px;
+        margin-right: 900px;
+        margin-bottom: 200px;
+        border-radius: 20rem;
+       }
+      
+    </Style>
+</head>
+<body>
+      
+    <div class="background"></div>
+     <div class="welcome">
+        <h1><b> YatraNest</b></h1>
+       <div class="image"><img src="yatra nest logo.jpg" width="150" height="200" alt="" srcset=""></div>
+       
+    </div>
+   
+</body>
+</html>
