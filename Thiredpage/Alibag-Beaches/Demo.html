@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Listings with Map & Booking</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: #146570;
+      color: #333;
+      line-height: 1.5;
+    }
+    .places {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .places h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      width: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 15px 0 5px 0;
+    }
+    .card p {
+      font-size: 0.9rem;
+      margin: 0 10px 10px 10px;
+    }
+    .card .btn {
+      background: teal;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .card .btn:hover {
+      background: #004f4f;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+    .close {
+      color: red;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+    .modal-content .book-btn {
+      background: #ff9800;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .modal-content .book-btn:hover {
+      background: #e68900;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="places">
+    <h2>Hotels & Booking</h2>
+    <div class="card-container">
+
+      <!-- Hotel 1: Taj Exotica Goa -->
+      <div class="card">
+        <img src="https://www.tajhotels.com/content/dam/luxury/taj-exotica-goa/Exterior/HeroImage/TeG_Hero.jpg" alt="Taj Exotica Goa">
+        <h3>Taj Exotica Resort & Spa, Goa</h3>
+        <p>📞 Contact: +91 70000xxxxx</p>
+        <button class="btn" onclick="openModal('map1')">View Location</button>
+      </div>
+
+      <!-- Hotel 2: Novotel Goa Candolim -->
+      <div class="card">
+        <img src="https://all.accor.com/marc/state/edito/2549816/400x284_novotel-goa-candolim-pool-view.jpg" alt="Novotel Goa Candolim">
+        <h3>Novotel Goa Candolim</h3>
+        <p>📞 Contact: +91 84118xxxxx</p>
+        <button class="btn" onclick="openModal('map2')">View Location</button>
+      </div>
+
+      <!-- Hotel 3: Taj Fort Aguada -->
+      <div class="card">
+        <img src="https://taj.tajhotels.com/content/dam/luxury/taj-fort-aguada-goa/Exterior/HeroImage/TFA_Hero.jpg" alt="Taj Fort Aguada">
+        <h3>Taj Fort Aguada Resort & Spa</h3>
+        <p>📞 Contact: +91 70000yyyyy</p>
+        <button class="btn" onclick="openModal('map3')">View Location</button>
+      </div>
+      
+      <!-- Hotel 4: Taj Fort Aguada -->
+      <div class="card">
+        <img src="https://taj.tajhotels.com/content/dam/luxury/taj-fort-aguada-goa/Exterior/HeroImage/TFA_Hero.jpg" alt="Taj Fort Aguada">
+        <h3>Taj Fort Aguada Resort & Spa</h3>
+        <p>📞 Contact: +91 70000yyyyy</p>
+        <button class="btn" onclick="openModal('map3')">View Location</button>
+      </div>
+      
+      <!-- Hotel 5: Taj Fort Aguada -->
+      <div class="card">
+        <img src="https://taj.tajhotels.com/content/dam/luxury/taj-fort-aguada-goa/Exterior/HeroImage/TFA_Hero.jpg" alt="Taj Fort Aguada">
+        <h3>Taj Fort Aguada Resort & Spa</h3>
+        <p>📞 Contact: +91 70000yyyyy</p>
+        <button class="btn" onclick="openModal('map3')">View Location</button>
+      </div>
+<!-- Hotel 6: Taj Fort Aguada -->
+      <div class="card">
+        <img src="https://taj.tajhotels.com/content/dam/luxury/taj-fort-aguada-goa/Exterior/HeroImage/TFA_Hero.jpg" alt="Taj Fort Aguada">
+        <h3>Taj Fort Aguada Resort & Spa</h3>
+        <p>📞 Contact: +91 70000yyyyy</p>
+        <button class="btn" onclick="openModal('map3')">View Location</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modals -->
+
+  <div id="map1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map1')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.7507145416985!2d73.77287921506539!3d15.403370686233266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc3cf4a5b5cd7%3A0x6a15f4d1f49ac3c!2sTaj%20Exotica%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436501234!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/taj-exotica-goa.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+
+  <div id="map2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map2')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.36428882286!2d73.75476541506728!3d15.4787489861246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf60f5254c1d%3A0x67b0d9f2a168df29!2sNovotel%20Goa%20Candolim!5e0!3m2!1sen!2sin!4v1696436602345!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/novotel-goa-shrem-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+
+  <div id="map3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map3')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.5114194995325!2d73.77161491506762!3d15.44547858620388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf5b6cb035c5%3A0xc963a5f72c5edc2!2sTaj%20Fort%20Aguada%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436703456!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/fort-aguada-beach-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+   <div id="map3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map3')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.5114194995325!2d73.77161491506762!3d15.44547858620388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf5b6cb035c5%3A0xc963a5f72c5edc2!2sTaj%20Fort%20Aguada%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436703456!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/fort-aguada-beach-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+   <div id="map3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map3')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.5114194995325!2d73.77161491506762!3d15.44547858620388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf5b6cb035c5%3A0xc963a5f72c5edc2!2sTaj%20Fort%20Aguada%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436703456!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/fort-aguada-beach-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+   <div id="map3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map3')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.5114194995325!2d73.77161491506762!3d15.44547858620388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf5b6cb035c5%3A0xc963a5f72c5edc2!2sTaj%20Fort%20Aguada%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436703456!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/fort-aguada-beach-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+   <div id="map3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('map3')">&times;</span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.5114194995325!2d73.77161491506762!3d15.44547858620388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfcf5b6cb035c5%3A0xc963a5f72c5edc2!2sTaj%20Fort%20Aguada%20Resort%20%26%20Spa%2C%20Goa!5e0!3m2!1sen!2sin!4v1696436703456!5m2!1sen!2sin"></iframe>
+      <a href="https://www.booking.com/hotel/in/fort-aguada-beach-resort.html" target="_blank" class="book-btn">
+        Book Hotel
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    };
+  </script>
+
+</body>
+</html>

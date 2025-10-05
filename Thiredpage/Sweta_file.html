@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Explore Himachal Pradesh — Travel Guide</title>
+<style>
+  :root{
+    --nav:#0b5970; --accent:#ffbf47; --card-bg:#fff; --muted:#666;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,Arial,sans-serif}
+  body{background:#0f5c60;color:#fff;line-height:1.45}
+  a{color:var(--nav);text-decoration:none}
+  header{position:sticky;top:0;background:var(--nav);z-index:1200;padding:14px 22px;box-shadow:0 4px 12px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:space-between}
+  header h1{font-size:1.15rem;font-weight:700}
+  nav ul{display:flex;gap:18px;list-style:none;align-items:center}
+  nav a{color:#fff;font-weight:600}
+  nav a:hover{color:var(--accent)}
+  /* Hero */
+  .hero{min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:48px 18px;background:linear-gradient(rgba(7,54,56,.45),rgba(7,54,56,.45)), url('https://www.gosahin.com/go/p/f/1546277241_Kangra-Fort1.jpg') center/cover no-repeat}
+  .hero .wrap{background:rgba(255,255,255,0.03);padding:28px;border-radius:10px}
+  .hero h2{font-size:2.4rem;color:#ff7ad0;margin-bottom:12px}
+  .hero p{color:#d9f0f0;margin-bottom:16px}
+  .btn{background:var(--accent);color:#073f47;padding:10px 18px;border-radius:8px;font-weight:700}
+  .btn:hover{transform:translateY(-2px);transition:all .15s}
+  main{max-width:1180px;margin:28px auto;padding:0 18px 60px}
+  .section-title{color:#073f47;font-size:1.6rem;text-align:center;margin:18px 0 14px;background:#fff;padding:10px;border-radius:8px;color:#073f47}
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:12px}
+  .card{background:var(--card-bg);color:#222;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,18,20,.12);display:flex;flex-direction:column}
+  .card .imgwrap{width:100%;height:160px;overflow:hidden}
+  .card img{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;transition:transform .28s}
+  .card img:hover{transform:scale(1.04)}
+  .card-body{padding:12px 14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+  .card h3{color:#073f47;font-size:1.05rem}
+  .card p{color:var(--muted);font-size:0.95rem}
+  .card .row{margin-top:auto;display:flex;gap:8px;align-items:center;justify-content:space-between}
+  .link-btn{background:transparent;border:1px solid #e6eef0;color:#073f47;padding:8px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+  .link-btn:hover{background:#f6f9f9}
+  /* modal */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.65);z-index:2000;padding:18px}
+  .modal.open{display:flex}
+  .modal-card{background:#fff;color:#073f47;border-radius:10px;max-width:820px;width:100%;padding:18px;position:relative;box-shadow:0 12px 40px rgba(3,24,30,.25)}
+  .modal-card h2{margin-bottom:8px}
+  .modal-card p{color:#333;margin-bottom:10px}
+  .close{position:absolute;right:12px;top:12px;background:#e74c3c;color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer}
+  .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .modal-grid a{display:block;padding:8px;border-radius:8px;background:#f6f8f8;color:#04393b;text-decoration:none;border:1px solid #e6efef}
+  .muted-small{font-size:0.9rem;color:#666;margin-top:6px}
+  footer{padding:18px;text-align:center;color:#fff;background:transparent;margin-top:30px}
+  /* responsive */
+  @media(max-width:720px){
+    .hero h2{font-size:1.6rem}
+    .card img{height:150px}
+    .modal-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Explore Himachal Pradesh</h1>
+  <nav>
+    <ul>
+      <li><a href="#home" onclick="scrollToId(event,'home')">Home</a></li>
+      <li><a href="#historical" onclick="scrollToId(event,'historical')">Historical</a></li>
+      <li><a href="#temples" onclick="scrollToId(event,'temples')">Temples</a></li>
+      <li><a href="#trekking" onclick="scrollToId(event,'trekking')">Trekking</a></li>
+      <li><a href="#hotels" onclick="scrollToId(event,'hotels')">Hotels</a></li>
+      <li><a href="#rivers" onclick="scrollToId(event,'rivers')">Rivers</a></li>
+      <li><a href="#agents" onclick="scrollToId(event,'agents')">Agents</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <h2>Discover the Beauty of Himachal Pradesh</h2>
+    <p>Mountains, valleys, temples, treks, rivers & local experiences — practical info with partner links.</p>
+    <a class="btn" href="#historical" onclick="scrollToId(event,'historical')">Explore Now</a>
+  </div>
+</section>
+
+<main>
+
+  <!-- HISTORICAL -->
+  <h2 class="section-title" id="historical">Historical Places</h2>
+  <div class="grid">
+    <!-- Kangra Fort -->
+    <article class="card">
+      <a class="imgwrap" href="https://www.gosahin.com/go/p/f/1546277241_Kangra-Fort1.jpg" target="_blank" rel="noopener">
+        <img src="https://www.gosahin.com/go/p/f/1546277241_Kangra-Fort1.jpg" alt="Kangra Fort">
+      </a>
+      <div class="card-body">
+        <h3>Kangra Fort</h3>
+        <p>One of India’s oldest forts with panoramic Kangra Valley views.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Kangra Fort','Kangra Fort: ancient citadel, temples inside, great valley views. How to reach: Dharamshala (~20 km) by road. Best time: Oct–Jun. Local cafe: search on map, sample: nearby 'Kangra Fort View Cafe'. Hotels: <a href=&quot;https://www.booking.com/searchresults.html?city=-291731&quot; target=&quot;_blank&quot;>Search hotels</a>. Agent contact: <a href=&quot;https://www.millionrejoicehimachal.com/contact-us/&quot; target=&quot;_blank&quot;>Million Rejoice</a>.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Naggar Castle -->
+    <article class="card">
+      <a class="imgwrap" href="https://img.traveltriangle.com/blog/wp-content/uploads/2024/07/Naggar-Castle-og.jpg" target="_blank" rel="noopener">
+        <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2024/07/Naggar-Castle-og.jpg" alt="Naggar Castle">
+      </a>
+      <div class="card-body">
+        <h3>Naggar Castle</h3>
+        <p>15th-century stone & wood castle, now a heritage hotel with art gallery nearby.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Naggar Castle','Naggar Castle: historic mountain castle, Roerich art nearby. How to reach: Kullu region, short drive from Manali. Best time: Mar–Jun, Sep–Nov. Local cafe: 'Naggar Café' / Roerich Art Gallery café. Hotels: heritage stays at the castle. Agent: <a href=&quot;https://www.manalitourtravels.com/&quot; target=&quot;_blank&quot;>Manali Tour & Travels</a>.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bhuri Singh Museum -->
+    <article class="card">
+      <a class="imgwrap" href="https://www.bhurisinghmuseumchamba.in/wp-content/uploads/2019/06/bsmmg4.jpg" target="_blank" rel="noopener">
+        <img src="https://www.bhurisinghmuseumchamba.in/wp-content/uploads/2019/06/bsmmg4.jpg" alt="Bhuri Singh Museum">
+      </a>
+      <div class="card-body">
+        <h3>Bhuri Singh Museum</h3>
+        <p>Chamba museum for pahari paintings, coins & royal artefacts.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Bhuri Singh Museum','Bhuri Singh Museum: fine collection of Pahari miniature paintings and historical artifacts. How to reach: Chamba town center. Best time: year-round. Nearby: Chaugan, local cafes and guesthouses. Agent: local Chamba operators via HPTAA.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tabo Monastery -->
+    <article class="card">
+      <a class="imgwrap" href="https://media1.thrillophilia.com/filestore/ocrtguekgso8i8l34xs1zv9ehol8_1578912292_shutterstock_1589012128.jpg?w=1440&dpr=2" target="_blank" rel="noopener">
+        <img src="https://media1.thrillophilia.com/filestore/ocrtguekgso8i8l34xs1zv9ehol8_1578912292_shutterstock_1589012128.jpg?w=1440&dpr=2" alt="Tabo Monastery">
+      </a>
+      <div class="card-body">
+        <h3>Tabo Monastery</h3>
+        <p>“Ajanta of Himalayas” — ancient monastery with murals in Spiti.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Tabo Monastery','Tabo Monastery: founded ~996 AD, famous murals and historic importance. How to reach: Road to Tabo via Kaza (seasonal). Best time: May–Oct. Local stay: homestays in Tabo. Agent: Spiti ecosphere/local DMCs.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Kuthar / Arki style (farm5 image used) -->
+    <article class="card">
+      <a class="imgwrap" href="https://farm5.staticflickr.com/4782/39839013925_1d0e82666d_b.jpg" target="_blank" rel="noopener">
+        <img src="https://farm5.staticflickr.com/4782/39839013925_1d0e82666d_b.jpg" alt="Arki / Kuthar Fort">
+      </a>
+      <div class="card-body">
+        <h3>Arki / Kuthar Fort</h3>
+        <p>Hill forts with murals and gardens — small heritage sites worth visiting.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Arki / Kuthar Fort','Arki / Kuthar: 18th-century forts with murals and gardens. How to reach: Solan/Bilaspur regions, taxi from main towns. Best time: Oct–Apr. Nearby markets & dhabas for local food.')">More Info</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- TEMPLES -->
+  <h2 class="section-title" id="temples">Famous Temples</h2>
+  <div class="grid">
+    <article class="card">
+      <a class="imgwrap" href="https://media-cdn.tripadvisor.com/media/photo-s/1a/8d/6a/c8/jwalamukhi-temple-us.jpg" target="_blank" rel="noopener">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/8d/6a/c8/jwalamukhi-temple-us.jpg" alt="Jwalamukhi Temple">
+      </a>
+      <div class="card-body">
+        <h3>Jwalamukhi Temple</h3>
+        <p>Temple of the eternal flame — major Shakti peeth in Kangra.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Jwalamukhi Temple','Jwalamukhi: famous for the eternal flame. How to reach: Kangra region, taxis from Dharamshala. Best time: Navratri. Nearby hotels & agent contacts available via Kangra operators.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://res.cloudinary.com/chasset/f_webp,h_480,w_720/hbimages/places/Mata-Chintpurni-Temple-G-Una-Himachal-Pradesh.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/chasset/f_webp,h_480,w_720/hbimages/places/Mata-Chintpurni-Temple-G-Una-Himachal-Pradesh.jpg" alt="Chintpurni">
+      </a>
+      <div class="card-body">
+        <h3>Chintpurni Temple</h3>
+        <p>One of Himachal’s Shaktipeeths in Una district; devotional hub.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Chintpurni Temple','Chintpurni: Shaktipeeth in Una. How to reach: road from Hoshiarpur/Una. Best time: Navratri and festivals. Nearby lodging & stalls for prasad.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://www.indiatourismpackage.com/assets/images/temples/hadimba-temple-4.webp" target="_blank" rel="noopener">
+        <img src="https://www.indiatourismpackage.com/assets/images/temples/hadimba-temple-4.webp" alt="Hadimba Temple">
+      </a>
+      <div class="card-body">
+        <h3>Hadimba Devi Temple</h3>
+        <p>Sacred wooden temple set in dense deodar forests near Manali.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Hadimba Temple','Hadimba Temple: wooden Pagoda-style shrine in Manali. How to reach: short drive from Mall Road. Nearby cafes: Old Manali cafes; hotels & cottages available. Agent: Manali-based operators.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Chamunda (image supplied) -->
+    <article class="card">
+      <a class="imgwrap" href="https://rakkh.com/patrika/wp-content/uploads/2022/03/chamunda-nandikeshwar-Pallavi-Jayaraman.jpg" target="_blank" rel="noopener">
+        <img src="https://rakkh.com/patrika/wp-content/uploads/2022/03/chamunda-nandikeshwar-Pallavi-Jayaraman.jpg" alt="Chamunda Devi">
+      </a>
+      <div class="card-body">
+        <h3>Chamunda Devi Temple</h3>
+        <p>Hill-top shrine near Dharamshala with panoramic views and devotion.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Chamunda Devi Temple','Chamunda Devi: prominent goddess temple above Dharamshala. How to reach: short taxi drive. Nearby: McLeodganj cafes & guesthouses. Agent suggestions: local Dharamshala guides.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Jwala / Additional (used small icon link) -->
+    <article class="card">
+      <a class="imgwrap" href="https://media-cdn.tripadvisor.com/media/photo-s/1a/8d/6a/c8/jwalamukhi-temple-us.jpg" target="_blank" rel="noopener">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/8d/6a/c8/jwalamukhi-temple-us.jpg" alt="Bajreshwari / Jwala">
+      </a>
+      <div class="card-body">
+        <h3>Bajreshwari / Jwala (Kangra)</h3>
+        <p>Regional shrines dedicated to Shakti traditions in Kangra region.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Bajreshwari / Jwala','Regional Shakti shrines near Kangra & Dharamshala. How to reach: local roads from Kangra. Nearby markets & small temples — contact Kangra operators for group visits.')">More Info</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- TREKKING -->
+  <h2 class="section-title" id="trekking">Trekking Spots</h2>
+  <div class="grid">
+    <article class="card">
+      <a class="imgwrap" href="https://dharamshalaguide.com/wp-content/uploads/2023/01/triund1.jpg" target="_blank" rel="noopener">
+        <img src="https://dharamshalaguide.com/wp-content/uploads/2023/01/triund1.jpg" alt="Triund Trek">
+      </a>
+      <div class="card-body">
+        <h3>Triund Trek</h3>
+        <p>Popular easy trek from McLeodganj with Dhauladhar views; overnight camping possible.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Triund Trek','Triund Trek: easy-moderate, ~9 km from McLeodganj. Best time: Mar–Nov. Recommended guides & camping: local Dharamshala trekking operators. Cafes: McLeodganj main market.' )">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://vl-prod-static.b-cdn.net/system/images/000/500/026/d1b8f9eb64840370b4ecff132982052c/original/1513417099_1477072986_hampta_1_jpg.jpg?1662820971" target="_blank" rel="noopener">
+        <img src="https://vl-prod-static.b-cdn.net/system/images/000/500/026/d1b8f9eb64840370b4ecff132982052c/original/1513417099_1477072986_hampta_1_jpg.jpg?1662820971" alt="Hampta Pass">
+      </a>
+      <div class="card-body">
+        <h3>Hampta Pass Trek</h3>
+        <p>Classic Manali trek connecting lush valleys to stark Spiti landscapes.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Hampta Pass','Hampta Pass: multi-day trek from Manali to Lahaul/Spiti. Best season: Jun–Sep. Arrange porter & guide from Manali agent. Hotels: book in Manali before start.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://spitiecosphere.com/wp-content/uploads/2022/02/Pin-Parvati.jpg" target="_blank" rel="noopener">
+        <img src="https://spitiecosphere.com/wp-content/uploads/2022/02/Pin-Parvati.jpg" alt="Pin Parvati Pass">
+      </a>
+      <div class="card-body">
+        <h3>Pin Parvati Pass</h3>
+        <p>Challenging high-altitude trek linking Parvati valley to Pin valley (Spiti).</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Pin Parvati Pass','Pin Parvati: advanced trek (requires acclimatization & permits). Best time: Jul–Sep. Use experienced operators for safety. Local agent contacts available on request.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://vl-prod-static.b-cdn.net/system/images/000/595/944/e0a6c76211b254f019dbd5d37aaae611/original/1588414844_1549105738-beas-kund-trek_jpg.jpg?1663947740" target="_blank" rel="noopener">
+        <img src="https://vl-prod-static.b-cdn.net/system/images/000/595/944/e0a6c76211b254f019dbd5d37aaae611/original/1588414844_1549105738-beas-kund-trek_jpg.jpg?1663947740" alt="Beas Kund">
+      </a>
+      <div class="card-body">
+        <h3>Beas Kund Trek</h3>
+        <p>Trek to the source of the Beas river with alpine scenery; moderate difficulty.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Beas Kund','Beas Kund: origin of Beas river, scenic glacial lake. Start from Solang/Manali. Best time: Jun–Sep. Arrange guide & camping gear locally.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://images.pexels.com/photos/401366/pexels-photo-401366.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" target="_blank" rel="noopener">
+        <img src="https://images.pexels.com/photos/401366/pexels-photo-401366.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Bhrigu Lake">
+      </a>
+      <div class="card-body">
+        <h3>Bhrigu Lake Trek</h3>
+        <p>High-altitude lake trek near Manali; popular for alpine meadows & views.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Bhrigu Lake','Bhrigu Lake trek: moderate, start from Gulaba/Manali. Best time: Jun–Oct. Book a guide and stay in Manali before starting. Recommended agents: local Manali operators.')">More Info</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- HOTELS -->
+  <h2 class="section-title" id="hotels">Famous Hotels & Stays</h2>
+  <div class="grid">
+    <article class="card">
+      <a class="imgwrap" href="https://th.bing.com/th/id/OIP.4zFo2fWAExY4BVRx5iArPgHaEK?w=89&h=90&c=1&rs=1&qlt=70&r=0&o=7&dpr=1.3&pid=InlineBlock&rm=3" target="_blank" rel="noopener">
+        <img src="https://th.bing.com/th/id/OIP.4zFo2fWAExY4BVRx5iArPgHaEK?w=89&h=90&c=1&rs=1&qlt=70&r=0&o=7&dpr=1.3&pid=InlineBlock&rm=3" alt="Hotel Image">
+      </a>
+      <div class="card-body">
+        <h3>Hotel Example (Local)</h3>
+        <p>Representative boutique hotel used for agents/partnering (replace with your property).</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Hotel Example','Hotel Example: boutique property — use this slot to add your hotel details, commission terms, and agent contact links. Booking: <a href=&quot;https://www.booking.com&quot; target=&quot;_blank&quot;>Booking.com</a>')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/dd/51/cc/wildflower-hall-shimla.jpg?w=700&h=-1&s=1" target="_blank" rel="noopener">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/dd/51/cc/wildflower-hall-shimla.jpg?w=700&h=-1&s=1" alt="Wildflower Hall">
+      </a>
+      <div class="card-body">
+        <h3>Wildflower Hall (Shimla)</h3>
+        <p>Luxury mountain resort (Oberoi) with spectacular views and service.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Wildflower Hall','Wildflower Hall: luxury Oberoi property near Shimla. Ideal for premium travellers. Agent partnership: approach luxury tour operators & DMCs. Map & booking via Booking/TripAdvisor.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://tse2.mm.bing.net/th/id/OIP.iJ049Pfl5-aX6AK75U0a4wHaDf?rs=1&pid=ImgDetMain" target="_blank" rel="noopener">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.iJ049Pfl5-aX6AK75U0a4wHaDf?rs=1&pid=ImgDetMain" alt="Hotel">
+      </a>
+      <div class="card-body">
+        <h3>The Oberoi / Heritage Hotels</h3>
+        <p>Representative image for heritage/luxury hotels — good for B2B partnerships.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Heritage Hotels','Heritage hotels around Shimla & Manali: approach them for contracted rates & commissions. Use DMC Himachal for B2B contacts.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://indiano.travel/wp-content/uploads/2022/07/DRAMAT1.jpg" target="_blank" rel="noopener">
+        <img src="https://indiano.travel/wp-content/uploads/2022/07/DRAMAT1.jpg" alt="Norbu House">
+      </a>
+      <div class="card-body">
+        <h3>Norbu House (Dharamshala)</h3>
+        <p>Popular boutique hotel near McLeodganj — Tibetan ambience & comfort.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Norbu House','Norbu House: boutique stay in Dharamshala close to key attractions. CP for agents: direct contact & negotiated rates recommended.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://r1imghtlak.mmtcdn.com/1a55ca2a7efd11e68fce02bf5ac07431.jpg?&output-quality=75&downsize=910:612&crop=910:612;95,0&output-format=jpg" target="_blank" rel="noopener">
+        <img src="https://r1imghtlak.mmtcdn.com/1a55ca2a7efd11e68fce02bf5ac07431.jpg?&output-quality=75&downsize=910:612&crop=910:612;95,0&output-format=jpg" alt="Span Resort">
+      </a>
+      <div class="card-body">
+        <h3>Span Resort (Manali)</h3>
+        <p>Riverside luxury resort — commonly used for groups and conferences.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Span Resort','Span Resort: riverside resort in Manali — good for group bookings. Agent tie-ups recommended for bulk/seasonal bookings.')">More Info</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- RIVERS -->
+  <h2 class="section-title" id="rivers">Rivers & Water</h2>
+  <div class="grid">
+    <article class="card">
+      <a class="imgwrap" href="https://discoverkullumanali.in/wp-content/uploads/2019/01/River-rafting-in-beas-river-in-kullu-manali-dkm.jpg" target="_blank" rel="noopener">
+        <img src="https://discoverkullumanali.in/wp-content/uploads/2019/01/River-rafting-in-beas-river-in-kullu-manali-dkm.jpg" alt="Beas River Rafting">
+      </a>
+      <div class="card-body">
+        <h3>Beas River</h3>
+        <p>White-water rafting stretch near Kullu/Manali & riverside camping.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Beas River','Beas River rafting: book licensed operators in Kullu-Manali. How to reach: Kullu/Manali base. Agent tip: ask for licensed raft operators & safety gear. Local cafes & hotels in Kullu.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://tse2.mm.bing.net/th/id/OIP.30klEdZqBgssdYeRenr0awHaE7?w=626&h=417&c=7&r=0&o=5&pid=1.7" target="_blank" rel="noopener">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.30klEdZqBgssdYeRenr0awHaE7?w=626&h=417&c=7&r=0&o=5&pid=1.7" alt="Chenab River">
+      </a>
+      <div class="card-body">
+        <h3>Chenab River</h3>
+        <p>Flows through Lahaul & Spiti; dramatic gorges and high mountain scenery.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Chenab River','Chenab: scenic river in Lahaul-Spiti. How to reach: road over high passes; seasonal accessibility. Ideal for photography & remote camping.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://tse2.mm.bing.net/th/id/OIP.15T4zQB-ULnVi0JZGTxbCAHaE8?w=800&h=534&c=7&r=0&o=5&pid=1.7" target="_blank" rel="noopener">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.15T4zQB-ULnVi0JZGTxbCAHaE8?w=800&h=534&c=7&r=0&o=5&pid=1.7" alt="Parvati River">
+      </a>
+      <div class="card-body">
+        <h3>Parvati River</h3>
+        <p>Beautiful river near Kasol, hamlets & backpacker culture on its banks.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Parvati River','Parvati River: flows through Parvati valley & Kasol. Great for photography, riverside cafes & homestays. Agent tip: small local operators offer treks & river excursions.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://www.travelertrails.com/wp-content/uploads/2023/03/Ravi-River-4-1-768x512.jpg" target="_blank" rel="noopener">
+        <img src="https://www.travelertrails.com/wp-content/uploads/2023/03/Ravi-River-4-1-768x512.jpg" alt="Ravi River">
+      </a>
+      <div class="card-body">
+        <h3>Ravi River</h3>
+        <p>Important river through Chamba with riverbanks & local fishing communities.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Ravi River','Ravi River: Chamba region waterway. How to reach: road via Chamba town. Local attractions & markets nearby; check local guides for fishing/river walks.')">More Info</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="imgwrap" href="https://images.pexels.com/photos/401366/pexels-photo-401366.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" target="_blank" rel="noopener">
+        <img src="https://images.pexels.com/photos/401366/pexels-photo-401366.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Yamuna upper course">
+      </a>
+      <div class="card-body">
+        <h3>Yamuna (Upper course)</h3>
+        <p>Upper-course flows near the Shivalik foothills — seasonal tributaries & scenic spots.</p>
+        <div class="row">
+          <button class="link-btn" onclick="openModal('Yamuna (Upper)','Yamuna (upper course): flows near Shimla & Sirmaur foothills in part. Good for short walks & picnics in lower Himachal regions.')">More Info</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Agents / Dealers section -->
+  <h2 class="section-title" id="agents">Local Agents & Commission Partners</h2>
+  <div class="grid" style="margin-bottom:32px">
+    <div class="card" style="padding:14px">
+      <div class="card-body">
+        <h3>Million Rejoice Tours & Travels (Shimla)</h3>
+        <p class="muted-small">Phone: <a href="tel:+917807538886">+91 78075 38886</a> — B2B & hotel referrals.</p>
+        <div class="row">
+          <a class="link-btn" href="https://www.millionrejoicehimachal.com/contact-us/" target="_blank">Contact</a>
+          <button class="link-btn" onclick="openModal('Million Rejoice','Million Rejoice Tours: suggested partner for Shimla region. Contact via site for commission & B2B deals.')">Info</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:14px">
+      <div class="card-body">
+        <h3>Manali Tour & Travels (Manali)</h3>
+        <p class="muted-small">Phone: <a href="tel:+918219724410">+91 82197 24410</a></p>
+        <div class="row">
+          <a class="link-btn" href="https://www.manalitourtravels.com/" target="_blank">Website</a>
+          <button class="link-btn" onclick="openModal('Manali Tour','Manali Tour & Travels: good for rafting/paragliding/trek operator tie-ups.')">Info</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:14px">
+      <div class="card-body">
+        <h3>DMC Himachal (B2B)</h3>
+        <p class="muted-small">Regional DMC for larger collaborations and supplier lists.</p>
+        <div class="row">
+          <a class="link-btn" href="https://dmchimachalpradesh.com/" target="_blank">DMC</a>
+          <button class="link-btn" onclick="openModal('DMC Himachal','DMC Himachal: B2B DMC for large groups, conferences and partnership programs.')">Info</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:14px">
+      <div class="card-body">
+        <h3>HPTAA (Manali)</h3>
+        <p class="muted-small">Association to find local travel agents & operators.</p>
+        <div class="row">
+          <a class="link-btn" href="https://hptaa.com/about-hptaa.html" target="_blank">HPTAA</a>
+          <button class="link-btn" onclick="openModal('HPTAA','HPTAA: useful for contacting many local operators & negotiating commission agreements.')">Info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Modal (single, reused) -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="close" onclick="closeModal()">Close</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+
+    <div class="modal-grid" id="modal-links">
+      <!-- dynamic links will be added here -->
+    </div>
+    <p class="muted-small">Tip: Click image to open the full-size original image in a new tab. Use the agent links for commission/partnership enquiries.</p>
+  </div>
+</div>
+
+<footer>
+  © 2025 Explore Himachal Pradesh — Designed for Travel Partnerships • Images open in new tab
+</footer>
+
+<script>
+  // smooth scroll helper
+  function scrollToId(e,id){
+    e && e.preventDefault();
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // open modal with content
+  function openModal(title, htmlDesc){
+    const modal = document.getElementById('modal');
+    document.getElementById('modal-title').innerText = title;
+    // allow small HTML (links)
+    document.getElementById('modal-desc').innerHTML = htmlDesc;
+    // prepare some standardized quick-links (maps, hotels, agents)
+    const modalLinks = document.getElementById('modal-links');
+    modalLinks.innerHTML = '';
+    // maps search
+    const mapsLink = document.createElement('a');
+    mapsLink.href = 'https://www.google.com/maps/search/' + encodeURIComponent(title + ' Himachal Pradesh');
+    mapsLink.target = '_blank';
+    mapsLink.innerText = 'Open in Google Maps';
+    modalLinks.appendChild(mapsLink);
+    // hotels search
+    const hotelsLink = document.createElement('a');
+    hotelsLink.href = 'https://www.booking.com/searchresults.html?ss=' + encodeURIComponent(title + ' Himachal Pradesh');
+    hotelsLink.target = '_blank';
+    hotelsLink.innerText = 'Search Hotels on Booking';
+    modalLinks.appendChild(hotelsLink);
+    // sample agent contact
+    const agentLink = document.createElement('a');
+    agentLink.href = 'https://dmchimachalpradesh.com/';
+    agentLink.target = '_blank';
+    agentLink.innerText = 'Contact DMC / Local Agents';
+    modalLinks.appendChild(agentLink);
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  function closeModal(){
+    const modal = document.getElementById('modal');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  // let ESC close modal
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  // delegate clicks on any "More Info" that passed html with <a> tags already:
+  // (we already call openModal with proper params)
+
+  // Accessibility note: images already open full-size via anchor around them
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goa Places</title>
+   <link rel="stylesheet" href="dem04.css">
+  <style> 
+  
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+
+    }
+  h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* 4,6 Main container left-right */
+    .container {
+      display: flex;              /* important: side by side */
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 100px;
+         flex-direction: row;   /
+    }
+
+    .goa-box {
+      flex: 1;                     /* equal width */
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+       overflow: hidden;
+       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .goa-box h1 {
+      text-align: center;
+      color: #006994;
+      margin-bottom: 15px;
+    }
+    
+  .south .box-1 {
+      transform: translateX(100px); /* start right */
+     /* animation: slideRight 1s forwards;*/
+       animation: scroll-left-right 1s linear infinite alternate;
+    }
+    
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+      .box-1 {
+      opacity: 0; /* hidden initially */
+      transform: translateX(-100px); /* start left */
+      animation: slideLeft 1s forwards;
+    }
+ .north .box-1 {
+      animation: slideLeft 1s forwards;
+       /* animation: scroll-left-right 1s linear infinite alternate; */
+    }
+    /* @keyframes scroll-left-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-left-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+} */
+
+
+
+    /* Animation for South Goa (right to left) */
+    .south .box-1 {
+      transform: translateX(100px); /* start right */
+      animation: slideRight 1s forwards;
+      animation: scroll-left 20s linear infinite alternate;
+    }
+    .box-1 img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .box-1 p {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .desc {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .btn-1 {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: #006994;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+     @keyframes slideLeft {
+      from {opacity: 0; transform: translateX(-100px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    @keyframes slideRight {
+      0% {opacity: 0; transform: translateX(100px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    .btn-1:hover {
+      background: #004d66;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- North Goa -->
+  <div class="goa-box">
+    <h1>North Goa</h1>
+    <div class="scroll-box">
+      <div class="image-grid">
+        <div class="box-1"><img src="images-NG/calangute.jpg"><p>Calangute</p></div>
+        <div class="box-1"><img src="images-NG/Baga-Beach.jpg"><p>Baga Beach</p></div>
+        <div class="box-1"><img src="images-NG/vagator-beach.jpg"><p>Vagator</p></div>
+        <div class="box-1"><img src="images-NG/fort-aguada.jpg"><p>Fort Aguada</p></div>
+        <div class="box-1"><img src="images-NG/bacilica.jpg"><p>Basilica</p></div>
+        <div class="box-1"><img src="images-NG/arambol-beach.jpg"><p>Arambol</p></div>
+        <div class="box-1"><img src="images-NG/Anjuna-Beach.jpg"><p>Anjuna</p></div>
+        <div class="box-1"><img src="images-NG/cultural-goa.jpg"><p>Culture of Goa</p></div>
+        <div class="box-1"><img src="images-NG/club-goa.jpg"><p>Club Goa</p></div>
+      </div>
+    </div>
+    <p class="desc">North Goa is famous for its lively beaches, forts and nightlife.</p>
+    <a href="northgoa.html" class="btn-1">Explore More</a>
+  </div>
+
+  <!-- South Goa -->
+  <div class="goa-box">
+    <h1>South Goa</h1>
+    <div class="scroll-box">
+      <div class="image-grid">
+        <div class="box-1"><img src="South-goa-images/Palolem-beach.jpg"><p>Palolem</p></div>
+        <div class="box-1"><img src="South-goa-images/colva-beach-goa.jpg"><p>Colva</p></div>
+        <div class="box-1"><img src="South-goa-images/Benaulim-beach.jpg"><p>Benaulim</p></div>
+        <div class="box-1"><img src="South-goa-images/meadowmere-resort.jpg"><p>Meadow View resort</p></div>
+        <div class="box-1"><img src="South-goa-images/Butterfly-Beach.jpg"><p>Butterfly Beach</p></div>
+        <div class="box-1"><img src="South-goa-images/Advatures in south goa.jpg"><p>Advatures in south goa</p></div>
+         <div class="box-1"><img src="South-goa-images/Varca Beach-tresorts.jpg"><p>Advanture in Varca Beach</p></div>
+        <div class="box-1"><img src="South-goa-images/Church of the holy Spirit.jpeg"><p>Church of the holy Spirit</p></div>
+       
+        <div class="box-1"><img src="South-goa-images/Margao Market.png"><p>Margao Market</p></div>
+      </div>
+    </div>
+    <p class="desc">South Goa is famous for its peaceful and clean beaches.</p>
+    <a href="southgoa.html" class="btn-1">Explore More</a>
+  </div>
+
+</div>
+<script>
+  // Delay animations for smooth effect
+//   document.querySelectorAll(".box-1").forEach((box, i) => {
+//     box.style.animationDelay = `${i * 0.2}s`;
+//   });
+</script>
+</body>
+</html>

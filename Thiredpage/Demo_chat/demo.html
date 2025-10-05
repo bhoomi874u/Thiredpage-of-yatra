@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Alibag</title>
+  <link rel="stylesheet" href="Alibg.css">
+  <style>
+    /* Popup modal style */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 999;
+      padding-top: 100px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+    .modal-content {
+      background: #fff;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 700px;
+    }
+    .close {
+      color: red;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn {
+      background: teal;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<section id="places" class="places">
+  <h2>Popular Beaches in Alibag</h2>
+  <div class="card-container">
+    <!-- Example card -->
+    <div class="card">
+      <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/e8/09/42.jpg" alt="Alibaug Beach">
+      <h3>Alibaug Beach</h3>
+      <p>The Queen of Beaches, famous for water sports & nightlife.</p>
+      <button class="btn" onclick="openModal('alibaug')">View Location</button>
+    </div>
+  </div>
+</section>
+
+<!-- Popup Modal -->
+<div id="modal-alibaug" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('alibaug')">&times;</span>
+    <h2>Alibaug Beach Location</h2>
+   <button class="btn" onclick="openModal('alibaug')">View Location</button>
+    <h3>Local Agents & Hotel Bookings</h3>
+    <ul>
+      <li>Agent: Mr. Sharma (+91 98765xxxxx)</li>
+      <li>Hotel: Taj Alibaug Resort (Starting ₹5,000/night)</li>
+      <li>Nearby Taxi Service: Call +91 91234xxxxx</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Open modal
+  function openModal(id) {
+    document.getElementById("modal-" + id).style.display = "block";
+  }
+  // Close modal
+  function closeModal(id) {
+    document.getElementById("modal-" + id).style.display = "none";
+  }
+  // Close when clicking outside
+  window.onclick = function(event) {
+    document.querySelectorAll('.modal').forEach(modal => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

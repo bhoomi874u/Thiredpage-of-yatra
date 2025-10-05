@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Html Form</title>
+</head>
+
+<body>
+  <form action="">
+    <center><h1>Registration Form</h1></center>  
+
+    <div class="name">
+      <b>First name:</b> 
+      <input type="text" id="fname" name="fname" placeholder="Enter your First name" autocomplete="given-name"> 
+
+      <b>Last name:</b> 
+      <input type="text" id="lname" name="lname" placeholder="Enter your Last name" autocomplete="family-name">
+    </div>
+
+    <div class="email">
+      <b>Email ID:</b> 
+      <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email">
+
+      <b>Password:</b> 
+      <input type="password" id="emailpass" name="password" placeholder="Enter your password" autocomplete="new-password">
+    </div>
+
+    <div class="mobile">
+      <b>Mobile Number:</b> 
+      <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" autocomplete="tel">
+    </div>
+
+    <label>
+      <div class="gen">Gender</div>
+      <div class="g">
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="other"> Other
+      </div>
+    </label>
+
+    <div class="address">Address</div>
+    <div class="add">
+      <label>
+        <textarea id="add" name="address" placeholder="Enter your address"  autocomplete="street-address"></textarea>
+      </label>
+    </div>
+
+    <div class="pin">Pincode</div>
+    <div class="num">
+      <label>
+        <input type="number" id="num" name="pincode" placeholder="Enter your pincode" autocomplete="postal-code">
+      </label>
+    </div>
+
+    <div class="button">
+      <button id="click" style="background-color:rgb(0, 255, 81)"><b>Submit</b></button>
+    </div>
+  </form>
+</body>
+</html>

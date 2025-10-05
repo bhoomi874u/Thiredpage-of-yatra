@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>होटल खोज</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+    <style>
+      /* मानचित्र की शैली */
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>निकटतम होटल खोजें</h1>
+    <div id="map"></div>
+    <ul id="hotel-list"></ul>
+
+    <script>
+      let map, service, infowindow;
+
+      function initMap() {
+        const kanpur = new google.maps.LatLng(26.4499, 80.3319); // कानपुर का स्थान
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: kanpur,
+          zoom: 15,
+        });
+
+        infowindow = new google.maps.InfoWindow();
+
+        const request = {
+          location: kanpur,
+          radius: 5000, // 5 किमी के दायरे में
+          type: ['lodging'], // होटल खोजें
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          const hotelList = document.getElementById('hotel-list');
+          hotelList.innerHTML = ''; // पहले से मौजूद सूची को साफ करें
+
+          results.forEach((place) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <strong>${place.name}</strong><br>
+              पता: ${place.vicinity}<br>
+              <a href="https://www.google.com/maps/search/?api=1&query=${place.geometry.location.lat()},${place.geometry.location.lng()}" target="_blank">Google Maps लिंक</a>
+            `;
+            hotelList.appendChild(li);
+
+            const marker = new google.maps.Marker({
+              position: place.geometry.location,
+              map: map,
+              title: place.name,
+            });
+
+            google.maps.event.addListener(marker, 'click', () => {
+              infowindow.setContent(`
+                <strong>${place.name}</strong><br>
+                पता: ${place.vicinity}<br>
+                <a href="https://www.google.com/maps/search/?api=1&query=${place.geometry.location.lat()},${place.geometry.location.lng()}" target="_blank">Google Maps लिंक</a>
+              `);
+              infowindow.open(map, marker);
+            });
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
